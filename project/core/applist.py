@@ -13,9 +13,9 @@ __OWN_APPS = (
     'project.core',
     # apps created
     'project.apps.security',
-    'project.apps.examples',
     'project.apps.media_slides',
     'project.apps.services',
+    'project.apps.quotes',
 )
 __THIRD_PARTY_APPS = (
     'django_s3_storage',

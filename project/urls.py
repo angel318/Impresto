@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^v1/auth/', include('project.apps.security.urls')),
     url(r'^api/', include('project.apps.media_slides.urls')),
     url(r'^api/', include('project.apps.services.urls')),
+    url(r'^api/', include('project.apps.quotes.urls')),
 ]
 
 handler404 = secview.error_404_def

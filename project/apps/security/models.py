@@ -42,6 +42,9 @@ class User(AbstractUser):
         verbose_name=_('Foto de perfil')
     )
     email = models.EmailField(max_length=255, unique=True)
+    phone = models.CharField(max_length=255)
+    enterprise = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
     username = models.CharField(max_length=255)
     email_verified = models.BooleanField(
         verbose_name=_('Email verificado?'),
@@ -52,7 +55,7 @@ class User(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'type', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['username', 'type', 'first_name', 'last_name', 'city', 'phone','enterprise']
 
     def __str__(self):
         """

@@ -5,9 +5,10 @@ from . import views
 router = routers.DefaultRouter()
 
 urlpatterns = [
-#Slides
-    url(r'^slides/$', views.SlidesView.as_view()),
-    url(r'^slides/(?P<pk>[0-9]+)/$', views.SlidesView.as_view()),
+#Servicios
+    url(r'^quotes/$', views.QuotesView.as_view()),
+    url(r'^quotes/(?P<pk>[0-9]+)/$', views.QuotesView.as_view()),
+
 ]
 
 urlpatterns += router.urls

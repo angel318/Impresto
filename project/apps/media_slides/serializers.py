@@ -4,4 +4,4 @@ from . import models
 class SlidesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Slides
-        fields = ('name','image',)
+        fields = ('name','image')

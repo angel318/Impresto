@@ -11,11 +11,12 @@ class MyUserAdmin(UserAdmin):
 
     fieldsets_admin = (
         (None, {'fields': ('username', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'city','phone','enterprise')}),
     )
 
     list_display = ('type', 'first_name', 'last_name', 'email', 'is_active', 'email_verified', 'created_at',)
     list_filter = ('type', 'is_active', 'is_staff', 'email_verified',)
+
     search_fields = ['first_name', 'last_name', 'email']
     ordering = ['email', ]
     fieldsets = fieldsets_admin + (
