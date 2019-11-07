@@ -52,6 +52,7 @@ class Extras(FieldDefaultsAbstracts):
 #Servicoos
 class Services(FieldDefaultsAbstracts):
     name = models.CharField(max_length=255)
+    specs = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     sheetsizes = models.ManyToManyField(SheetSizes)
     sheettypes = models.ManyToManyField(SheetTypes)

@@ -16,6 +16,7 @@ __OWN_APPS = (
     'project.apps.media_slides',
     'project.apps.services',
     'project.apps.quotes',
+    'project.apps.branches',
 )
 __THIRD_PARTY_APPS = (
     'django_s3_storage',
