@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext as _
 from ...common.models import FieldDefaultsAbstracts
 from project.apps.services.models import Services
+from .validators import validate_file_extension
 
 def path_and_rename(obj, filename):
     ext = filename.split('.')[-1]
@@ -26,8 +27,8 @@ class Quotes(FieldDefaultsAbstracts):
     observations = models.CharField(max_length=255)
     file = models.FileField(
         upload_to=path_and_rename,
-        blank=True,
-        default=''
+        blank=False,
+        validators=[validate_file_extension]
     )
     #datos del cliente
     name = models.CharField(max_length=255)
@@ -52,11 +53,11 @@ class Quotes(FieldDefaultsAbstracts):
 
     def save(self, *args, **kw):
         old = type(self).objects.get(pk=self.pk) if self.pk else None
-        super(Services, self).save(*args, **kw)
+        super(Quotes, self).save(*args, **kw)
         if old and old.file != self.file:
             if old.file != '':
                 print('Cambios detectados en FileField')
                 print('Eliminando archivo', old.file)
-                old.image.delete(save=False)
+                old.file.delete(save=False)
         else:
             print('No se cambio la el archivo')
