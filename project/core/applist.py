@@ -7,6 +7,8 @@ __DJANGO_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'storages',
+    'mapwidgets',
+    'django.contrib.gis',
 )
 __OWN_APPS = (
     # core app management commands etc...

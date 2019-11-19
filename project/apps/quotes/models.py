@@ -5,6 +5,8 @@ from django.utils.translation import ugettext as _
 from ...common.models import FieldDefaultsAbstracts
 from project.apps.services.models import Services
 from .validators import validate_file_extension
+from django.contrib.gis.geos import Point
+from django.contrib.gis.db import models
 
 def path_and_rename(obj, filename):
     ext = filename.split('.')[-1]
@@ -38,6 +40,7 @@ class Quotes(FieldDefaultsAbstracts):
     city = models.CharField(max_length=255)
     home_service = models.BooleanField(max_length=255)
     branch = models.CharField(max_length=255)
+    location = models.PointField(help_text="To generate the map for your location")
 
     class Meta:
         ordering = ['-created_at']
